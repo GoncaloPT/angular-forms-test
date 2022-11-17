@@ -1,0 +1,22 @@
+<p>parent-form works!</p>
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #parentForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="model.name" name="name"
+             #name="ngModel">
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Name is required
+      </div>
+    </div>
+
+    <app-child-component>
+    </app-child-component>
+    {{parentForm.form.valid}}
+    <button type="submit" class="btn btn-success" [disabled]="!parentForm.form.valid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="onNewPerson(); parentForm.reset()">New person</button>
+  </form>
+</div>

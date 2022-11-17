@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="grandchild">grandchild name</label>
+  <input type="text" class="form-control" id="grandchild"
+         required
+         [(ngModel)]="grandchild.name" name="grandchild"
+         #grandchild="ngModel">
+  <div [hidden]="grandchild.valid || grandchild.pristine"
+       class="alert alert-danger">
+    Name is required
+  </div>
+
+
+</div>

@@ -1,0 +1,12 @@
+<div class="form-group">
+  <label for="childName">child name</label>
+  <input type="text" class="form-control" id="childName"
+         required
+         [(ngModel)]="child.name" name="childName"
+         #childName="ngModel">
+  <div [hidden]="childName.valid || childName.pristine"
+       class="alert alert-danger">
+    Name is required
+  </div>
+  <app-grandchild-component></app-grandchild-component>
+</div>
